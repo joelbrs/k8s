@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: "nodejs-server"
+  labels:
+    app: "nodejs-server"
+
+spec:
+  selector: 
+    matchLabels:
+      app: "nodejs-server"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "nodejs-server"
+    spec:
+      containers:
+        - name: "nodejs-server"
+          image: "joelbrs/hello-node"
